@@ -1,5 +1,6 @@
 ---
 title: Docker镜像仓库
+thumbnail: /thumbnails/harbor_logo.png
 date: 2019-04-10 15:00:12
 categories: Docker
 tags:
@@ -28,7 +29,6 @@ tags:
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
 busybox                      latest              af2f74c517aa        6 days ago          1.2MB
 ```
-
 
 
 **1. 打标签**
@@ -68,6 +68,7 @@ docker pull thank037/busybox:1.0
 ```
 
 
+<br>
 
 ## 国内的镜像仓库
 
@@ -128,14 +129,14 @@ docker pull registry.cn-hangzhou.aliyuncs.com/thank/redis:1.0
 ![构建设置](https://ww1.sinaimg.cn/large/007rAy9hly1g1xhjiy4gkj31a10jw0tj.jpg)
 
 
-
+<br>
 
 
 ## 私有仓库
 
 > 出于安全和速度的考虑, 很多企业会选择搭建私有镜像仓库
 
-### registry
+### **registry**
 
 #### 安装和使用
 
@@ -188,9 +189,9 @@ docker pull localhost:5000/busybox:1.0
 - 不具备授权认证功能, 需要自己去做一些认证方案
 - 虽有API, 但没有一个好看的界面
 
+<br>
 
-
-### harbor
+### **harbor**
 
 harbor意为港湾, 很贴合它的作用
 
