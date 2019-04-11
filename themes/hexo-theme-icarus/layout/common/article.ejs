@@ -110,7 +110,8 @@
         <% } %>
 
         <!--% if (!index && has_config('share.type')) { %-->
-        <% if (index && has_config('share.type')) { %>
+<!--        % if (index && has_config('share.type')) { %-->
+        <% if (has_config('share.type')) { %>
         <%- partial('share/' + get_config('share.type')) %>
         <% } %>
     </div>
