@@ -201,30 +201,60 @@ public Response addInstance(InstanceInfo info,
     // validate required fields...
     
     // handle cases where clients may be registering with bad DataCenterInfo with missing data
-    DataCenterInfo dataCenterInfo = info.getDataCenterInfo();
-    if (dataCenterInfo instanceof UniqueIdentifier) {
-        String dataCenterInfoId = ((UniqueIdentifier) dataCenterInfo).getId();
-        if (isBlank(dataCenterInfoId)) {
-            boolean experimental = "true".equalsIgnoreCase(serverConfig.getExperimental("registration.validation.dataCenterInfoId"));
-            if (experimental) {
-                String entity = "DataCenterInfo of type " + dataCenterInfo.getClass() + " must contain a valid id";
-                return Response.status(400).entity(entity).build();
-            } else if (dataCenterInfo instanceof AmazonInfo) {
-                AmazonInfo amazonInfo = (AmazonInfo) dataCenterInfo;
-                String effectiveId = amazonInfo.get(AmazonInfo.MetaDataKey.instanceId);
-                if (effectiveId == null) {
-                    amazonInfo.getMetadata().put(AmazonInfo.MetaDataKey.instanceId.getName(), info.getId());
-                }
-            } else {
-                logger.warn("Registering DataCenterInfo of type {} without an appropriate id", dataCenterInfo.getClass());
-            }
-        }
-    }
+    // 省略...
 
     registry.register(info, "true".equals(isReplication));
     return Response.status(204).build();  // 204 to be backwards compatible
 }
 ```
+
+我们可以模拟客户端调用其中一个API看看: `com.netflix.eureka.resources.ApplicationResource#getApplication`
+
+> GET http://localhost:8761/eureka/apps/CLOUDLINK-USER
+
+返回结果如下: 
+
+```xml
+<application>
+    <name>CLOUDLINK-USER</name>
+    <instance>
+        <instanceId>192.168.153.1:cloudlink-user:8801</instanceId>
+        <hostName>localhost</hostName>
+        <app>CLOUDLINK-USER</app>
+        <ipAddr>192.168.153.1</ipAddr>
+        <status>UP</status>
+        <overriddenstatus>UNKNOWN</overriddenstatus>
+        <port enabled="true">8801</port>
+        <securePort enabled="false">443</securePort>
+        <countryId>1</countryId>
+        <dataCenterInfo class="com.netflix.appinfo.InstanceInfo$DefaultDataCenterInfo">
+            <name>MyOwn</name>
+        </dataCenterInfo>
+        <leaseInfo>
+            <renewalIntervalInSecs>30</renewalIntervalInSecs>
+            <durationInSecs>90</durationInSecs>
+            <registrationTimestamp>1555462894529</registrationTimestamp>
+            <lastRenewalTimestamp>1555463085849</lastRenewalTimestamp>
+            <evictionTimestamp>0</evictionTimestamp>
+            <serviceUpTimestamp>1555462894529</serviceUpTimestamp>
+        </leaseInfo>
+        <metadata>
+            <management.port>8801</management.port>
+        </metadata>
+        <homePageUrl>http://localhost:8801/</homePageUrl>
+        <statusPageUrl>http://localhost:8801/actuator/info</statusPageUrl>
+        <healthCheckUrl>http://localhost:8801/actuator/health</healthCheckUrl>
+        <vipAddress>cloudlink-user</vipAddress>
+        <secureVipAddress>cloudlink-user</secureVipAddress>
+        <isCoordinatingDiscoveryServer>false</isCoordinatingDiscoveryServer>
+        <lastUpdatedTimestamp>1555462894530</lastUpdatedTimestamp>
+        <lastDirtyTimestamp>1555462875800</lastDirtyTimestamp>
+        <actionType>ADDED</actionType>
+    </instance>
+</application>
+```
+
+
 
 通过查看这几个Resource类的API不难发现, 真正的逻辑都在一个`PeerAwareInstanceRegistry registry`中完成
 
@@ -272,7 +302,7 @@ public void register(final InstanceInfo info, final boolean isReplication) {
 
 Registry的流程如下: 
 
-![Eureka Server Register](https://pic2.zhimg.com/80/v2-e851cc82e2ac44b394ccdae6e2704841_hd.png)
+![Eureka Server Register](https://ww1.sinaimg.cn/large/007rAy9hgy1g25d2xnjm4j30k00aojsl.jpg)
 
 看到这里, 剩下的就是进入父类`AbstractInstanceRegistry`去查看细节了, 而Renew, Cancel的过程基本都是如此, 不说了
 
@@ -280,7 +310,7 @@ Registry的流程如下:
 
 <br>
 
-#### Registry
+#### 说明Registry
 
 在LeaseManager中的几个实现中, 都能看到这样一个数据结构
 
@@ -309,7 +339,7 @@ ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>> registry;
 
 <br>
 
-#### recentlyChangedQueue
+#### 说明RecentlyChangedQueue
 ```java
 ConcurrentLinkedQueue<RecentlyChangedItem> recentlyChangedQueue;
 ```
@@ -420,7 +450,7 @@ readOnlyCacheMap负责所有客户端读取实例信息的请求, 那么它的�
 
 <br>
 
-#### Replicate
+#### Peer Replicate
 
 对应架构图中Eureka Server之间的Replicate
 
@@ -444,13 +474,13 @@ readOnlyCacheMap负责所有客户端读取实例信息的请求, 那么它的�
 对于Client端的Provider来说, 在启动和实例状态变化是, 需要通知Server端
 
 源码参考(有序): 
-- com.netflix.discovery.InstanceInfoReplicator#onDemandUpdate
-- com.netflix.discovery.DiscoveryClient#register
-- com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator#register
-- com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient#register
+- `com.netflix.discovery.InstanceInfoReplicator#onDemandUpdate`
+- `com.netflix.discovery.DiscoveryClient#register`
+- `com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator#register`
+- `com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient#register`
 
 流程图如下: 
-![Eureka Client Provider Register](https://pic1.zhimg.com/80/v2-7ae37a84f2fb18c8cd70e2a553cc298c_hd.png)
+![Eureka Client Provider Register](https://ww1.sinaimg.cn/large/007rAy9hgy1g25d3jxyxsj30k0073q3r.jpg)
 
 同样, Renew, Cancel的过程也参照这个顺序 
 
@@ -462,9 +492,9 @@ readOnlyCacheMap负责所有客户端读取实例信息的请求, 那么它的�
 
 流程如下图
 
-![Eureka Client Consumer Fetch Service Registries](https://pic2.zhimg.com/80/v2-091e278984cfdb5fc123b22d3d20727d_hd.png)
+![Eureka Client Consumer Fetch Service Registries](https://ww1.sinaimg.cn/large/007rAy9hgy1g25d3w9hnkj30k008875a.jpg)
 
-![Eureka Client Consumer Update Service Registries](https://pic4.zhimg.com/80/v2-077118a0d6fb59c75742dbc6accfebaf_hd.png)
+![Eureka Client Consumer Update Service Registries](https://ww1.sinaimg.cn/large/007rAy9hgy1g25d4556avj30k007hq3x.jpg)
 
 
 <br>
