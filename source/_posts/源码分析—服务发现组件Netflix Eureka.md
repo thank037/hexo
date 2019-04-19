@@ -21,8 +21,13 @@ tags:
 
 结合Netflix Eureka架构图
 
-- 从源码解读Eureka架构图中服务生命周期: Register, Renew, Cancel, etc.
-- 从源码解读Eureka Peer Replicate过程, 分析其CAP指标
+- 从源码解读Eureka架构图中服务生命周期
+	- Register: 服务注册
+	- Renew: 服务续约
+	- Cancel: 服务下线
+	- Evict: 服务剔除(Servcer端)
+- 从源码解读Eureka Peer Replicate过程
+- 总结其一致性问题
 
 
 
@@ -46,6 +51,8 @@ eureka-server-governator
 eureka-test-utils
 ...
 ```
+
+本章节中只需要关注eureka-core和eureka-client两个模块
 
 项目是纯Servlet应用, 使用Gradle构建, 这里我只是作为参照并没有构建, 在集成了Spring Cloud Netflix Eureka的项目中进行源码调试
 
@@ -190,7 +197,7 @@ Eureka Client端的EurekaClientConfig与之类似, 不说了
 通过类名上的@Path注解, 或是类名. 不难分辨他们分别代表什么资源
 
 <br>
-#### Register & Renew...
+#### Register&Renew&Cancel
 
 来看一个服务注册-register的API, 在`ApplicationResource`中
 ```java
@@ -208,7 +215,8 @@ public Response addInstance(InstanceInfo info,
 }
 ```
 
-我们可以模拟客户端调用其中一个API看看: `com.netflix.eureka.resources.ApplicationResource#getApplication`
+
+我们可以模拟一个客户端调用看看: `com.netflix.eureka.resources.ApplicationResource#getApplication`
 
 > GET http://localhost:8761/eureka/apps/CLOUDLINK-USER
 
@@ -306,7 +314,7 @@ Registry的流程如下:
 
 看到这里, 剩下的就是进入父类`AbstractInstanceRegistry`去查看细节了, 而Renew, Cancel的过程基本都是如此, 不说了
 
-下面对Eureka Server中的一些重点概念进行分析
+下面对其中一些重点概念进行分析
 
 <br>
 
@@ -394,7 +402,7 @@ private long deltaRetentionTimerIntervalInMs = 30 * 1000;
 
 <br>
 
-#### 剔除
+#### Evict
 与实例注册, 发送心跳不同的是实例的剔除是Eureka Server主动来做的, 定期剔除无效的服务
 
 - Server端定期执行剔除任务的默认周期为60s
@@ -454,11 +462,33 @@ readOnlyCacheMap负责所有客户端读取实例信息的请求, 那么它的�
 
 对应架构图中Eureka Server之间的Replicate
 
+**isReplication**
+
+需要注意的是通过查看几个resource API, 都能发现一个放在Header的参数`isReplication`. 例如
+
+```java
+@POST
+@Consumes({"application/json", "application/xml"})
+public Response addInstance(InstanceInfo info, @HeaderParam(PeerEurekaNode.HEADER_REPLICATION) String isReplication) {}
+```
+
+这是因为Eureka Server依赖Eureka Client, 因为Eureka Server也要作为其它Eureka Server的Client, 
+
+所以通过`isReplication`来区分是来自于其它peer的复制请求还是来自与普通的client实例的请求, 
+
+如果Eureka Server收到属于复制请求的, 就不会再复制给其它Peer, 防止死循环
+
+还需要注意的是在InstanceInfo有一个`lastDirtyTimestamp`字段, 类似于版本号的概念, 在Peer Replication的过程中会对其进行比较, 在判断数据冲突的情况下, 返回4xx, 
+
+让应用实例重新register或同步信息, 来避免复制的冲突问题
+
 前面说过`replicateToPeers()`的入口点, 这个过程实际是将instance修改信息添加到一个批量任务中打包发送给其他peer
 
 源码参考: `com.netflix.eureka.cluster.PeerEurekaNode`
 
 里面可以看到创建Batch Task的过程, 由于是异步, 所以并不能保证在服务实例状态发生梗概时, 所有Peer上的信息都一致. 
+
+> Eureka Server端采用的是P2P的复制模式, 但是它不保证复制一定成功, 因此还通过与Eureka Client定期进行hearbeat, Server端内部的矫正机制来做应用实例信息的数据修复, 尽力提供一个最终一致性的服务实例视图
 
 <br>
 
@@ -506,13 +536,23 @@ Netflix Eureka是典型的注册中心+嵌入式客户端架构, 并且各节点
 
 通过上面的分析, 对Netflix Eureka架构图中的各个过程都有了一定的了解, 以及一些配置项的细节
 
-能够发现的一点是, 无论Eureka Server之间的Replicate过程, 还是Eureka Client向Eureka Server发起Get Service Registries的过程
+能够发现的一点是, 无论Eureka Server之间Peer to Peer的Replicate过程, 还是Eureka Client向Eureka Server发起Get Service Registries的过程
 
-实现中看到了大量的schedule和异步过程, 以及Eureka的自我保护机制, 这种模型简化了集群管理的复杂度, 易于实现高可扩展性. 
+实现中看到了大量的schedule, cache, 异步过程, 以及Eureka的自我保护机制, 这种模型简化了集群管理的复杂度, 易于实现高可扩展性. 
 
-但是并不能完全保证强一致, 而是最终一致性, 这在很多业务场景下是能够满足的
+但是并不能完全保证强一致, 而是最终一致性. 
+
+刚刚接触Eureka的新手肯定能够发现, 为什么在服务上线/下线后, 注册中心并没有立刻感知到, 而是间隔了若干时间.
+
+这在很多业务场景下是能够满足的, 因为作为Eureka客户端来说, 通常都会配置Ribbon提供失败重试, 尤其对于服务发现这一场景, 即使返回了非最新的服务供消费者调用, 也比什么都不返回好
+
+也就是[Eureka! Why You Shouldn’t Use ZooKeeper for Service Discovery](https://medium.com/knerd/eureka-why-you-shouldnt-use-zookeeper-for-service-discovery-4932c5c7e764)
+
+> 可参考中文翻译: https://blog.csdn.net/jenny8080/article/details/52448403
 
 这也是Eureka与其它几个服务发现组件(Zookeeper, Etcd, Consul)显著的区别
+
+
 
 在CAP理论中, Eureka保证AP, 其它几个保证CP
 

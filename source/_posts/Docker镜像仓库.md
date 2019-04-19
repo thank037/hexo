@@ -74,7 +74,7 @@ docker pull thank037/busybox:1.0
 
 国内也有很多, 例如[网易](https://c.163.com/hub#/m/home/), DaoCloud, [阿里云](https://dev.aliyun.com/search.html)等, 上传镜像和拉取镜像的姿势基本和Docker Hub一样
 
-网易的这两天个人认证无法使用, 这里实验阿里云的 
+网易的这两天个人认证无法使用, 必须要企业认证, 所以这里实验阿里云的 
 
 首先需要在`阿里云-容器镜像服务`中创建一个命名空间
 
