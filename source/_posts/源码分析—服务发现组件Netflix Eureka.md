@@ -550,11 +550,7 @@ Netflix Eureka是典型的注册中心+嵌入式客户端架构, 并且各节点
 
 > 可参考中文翻译: https://blog.csdn.net/jenny8080/article/details/52448403
 
-这也是Eureka与其它几个服务发现组件(Zookeeper, Etcd, Consul)显著的区别
-
-
-
-在CAP理论中, Eureka保证AP, 其它几个保证CP
+这也是Eureka与其它几个服务发现组件(Zookeeper, Etcd, Consul)显著的区别. 在CAP理论中, Eureka保证AP, 其它几个保证CP
 
 <br>
 
