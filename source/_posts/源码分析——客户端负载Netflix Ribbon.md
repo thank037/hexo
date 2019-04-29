@@ -60,7 +60,7 @@ $ git checkout -b v2.2.5 v2.2.5
 
 ### 核心组件
 
-![Ribbon核心组件](https://ww1.sinaimg.cn/large/007rAy9hgy1g2bgyczur1j31t40by76s.jpg)
+![Ribbon核心组件](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/Ribbon%E7%BB%84%E4%BB%B6%E8%84%91%E5%9B%BE.jpg)
 
 the beans that Spring Cloud Netflix provides by default for Ribbon:
 
@@ -106,7 +106,7 @@ RibbonLoadBalancerClient作为Ribbon负载逻辑的重要实现类, 看它之前
 
 - 继承结构
 
-![继承结构图](https://ww1.sinaimg.cn/large/007rAy9hgy1g2bivnl0xej307m05vwf2.jpg)
+![继承结构图](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/RibbonLoadBalancerClient%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84.png)
 
 - 接口定义
 
@@ -231,7 +231,7 @@ protected IRule rule = DEFAULT_RULE;
 
 - 继承结构
 
-  ![RoundRobinRule继承结构](https://ww1.sinaimg.cn/large/007rAy9hgy1g2blfhp5qpj309a05vjr9.jpg)
+  ![RoundRobinRule继承结构](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/RoundRobinRule.png)
 
 从源码中可以看到IRule的实现有很多很多, 对应多种负载均衡策略的种类
 
@@ -518,7 +518,7 @@ public class LoadBalancerAutoConfiguration {
 
 其中最关键的就是`restTemplate.setInterceptors(list)`了, 为restTemplate添加了一个拦截器, 在发起HTTP请求时进行拦截
 
-![RestTemplate#interceptors](https://ww1.sinaimg.cn/large/007rAy9hgy1g2dt7hb4ejj30cr065weh.jpg)
+![RestTemplate#interceptors](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/RestTemplate%20intercaptor.png)
 
 而拦截后要实现的功能肯定就是完成客户端负载, 进入该拦截器: 
 ```java
@@ -547,7 +547,7 @@ public class LoadBalancerInterceptor implements ClientHttpRequestInterceptor {
 
 那接下来就是根据serviceName, 根据负载找到一个服务实例进行路由, 又回到上面的 **路由&负载** 过程啦
 
-简化一下用一段代码来手动模拟, 就是这个样子
+我们使用中都要使用@Bean对其初始化, 确保在启动时就初始化, 如果new一个, 用一段代码来简化手动模拟, 就是这个样子
 ```java
 @Autowired
 private LoadBalancerClient loadBalancerClient;

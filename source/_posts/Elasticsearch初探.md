@@ -233,7 +233,7 @@ discovery.zen.ping.unicast.hosts: ["127.0.0.1"]
 
 访问`http://ip:9100`:
 
-![](https://ww1.sinaimg.cn/large/007rAy9hgy1g1na665s6zj30s20bpq3s.jpg)
+![es三个节点集群](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/ELK/es%E5%B8%A6%E7%B4%A2%E5%BC%95%E7%9A%84%E9%9B%86%E7%BE%A4.png)
 
 ### 二: 基础概念
 

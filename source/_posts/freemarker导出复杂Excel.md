@@ -35,7 +35,7 @@ tags:
 
 在Office中编辑一个Excel文件, 这就是最后要生成的模板.
 
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n7bcb7hrj309402cmwz.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/freemark1.png)
 
  
 
@@ -183,7 +183,7 @@ public void exportExcelByFreeMarker(HttpServletRequest request, HttpServletRespo
 生成Excel也有很多复杂的情况, 比如带图片, 跨行合并等.
 
 这里例多行合并的, 例如:
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n7f60at3j30b302ot8j.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/freemark2.png)
 
 生成的xml:
 

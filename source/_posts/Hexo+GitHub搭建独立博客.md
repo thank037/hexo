@@ -86,7 +86,7 @@ tags:
 
 登录之后 点击头像下的Settings选项.
 
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hgy1g1n8sbiz29j30tl0gr0ub.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%8D%9A%E5%AE%A21.png)
 
 标注的几个就是需要自己设置的, 比如SSH和仓库.
 
@@ -134,7 +134,7 @@ Enter passphrase (empty for no passphrase)
 
 到github页面的settings下, 找到SSH keys and GPG keys. 如图所示, 复制到key框中.
 
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n8tmjcf7j30tn0h2aba.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%8D%9A%E5%AE%A22.png)
 
 添加成功后, 在git bash中输入: `$ ssh -T git@github.com`
 
@@ -160,7 +160,7 @@ Enter passphrase (empty for no passphrase)
 ### 建立仓库(repositories)
 
 如图所示:
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n8usrsjoj30t90hsabc.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%8D%9A%E5%AE%A23.png)
 
 这里的repositories name 需要是你的 用户名+github.io, 如果要用GitHub Pages建立个人博客, 格式必须这样, 不能乱写. 描述自己随便写. 个人博客的仓库只能建立一个.
 
@@ -189,7 +189,7 @@ $ hexo init # 会在Hexo文件夹中初始化网站需要的所有文件.
 ```
 
 安装好的目录结构如图:
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hgy1g1n8wxkbdzj30hw08874o.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%8D%9A%E5%AE%A24.png)
 
 这时候, 点击themes中可以看到一个landscape, 它是默认的主题. 你也可启动服务看一下.
 
@@ -225,7 +225,7 @@ theme: hexo-theme-next
 在git clone之后, 可以用git pull命令更新一下.
 
 完毕后, 进入`Hexo/themes/主题` 目录下, 它的结构是这样的:
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n8z5mlp4j30jo0det9q.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%8D%9A%E5%AE%A25.png)
 这里也有一个叫`_config.yml`的文件, 可以把它称作**主题配置文件**.
 
 
@@ -310,12 +310,12 @@ hexo命令详细的可以参考: <https://segmentfault.com/a/1190000002632530>
 - 验证邮箱
 
 购买完毕后登录godaddy, 进入my product页面. 可以看到你购买的域名信息.
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hgy1g1n943c824j30z60h2jsh.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%8D%9A%E5%AE%A26.png)
 
 点击DNS管理
 
 对A记录, CNAME做基本的设置就可以了:
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n963562oj30tm0gr3yy.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%8D%9A%E5%AE%A27.png)
 
 对于A记录, github pages目前是这两个(如果变了, 就要做更换):
 

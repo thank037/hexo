@@ -49,7 +49,7 @@ print str
 
 也有人说: “Python一时爽, 重构火葬场”
 
-但是Python的应用场景那么多. 根据自己的需要来选择, 相信那么多前辈没错.
+但是Python的应用场景那么多. 根据自己的需要来选择, 相信那么多没错.
 
 Python的确是一门值得学习的课程.
 
@@ -132,7 +132,7 @@ open(filename, 'w').write(content)
 
 这个时候就要小小的分析下, 这23个url, 每个url怎么找?
 
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n9vs7gklj30jm0jc47x.jpg)
+![python爬虫-爬取一个页面](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/python1.jpg)
 
 这里可以先锁定一个元素, 进行查找. 再就是注意每次find时的规律, 其实就是查找的顺序起始
 
@@ -345,7 +345,7 @@ http://news.gsau.edu.cn/info/1037/30573.htm正在下载…
 
 
 
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n9yke5xmj30kc0k2dy9.jpg)
+![python爬虫-效果](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/python1.jpg)
 
 一分多钟爬了90个网页.
 

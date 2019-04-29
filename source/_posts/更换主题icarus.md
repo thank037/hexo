@@ -23,11 +23,11 @@ tags:
 
 - NexT
 
-  ![NexT主题](https://ww1.sinaimg.cn/large/007rAy9hly1g1obi5l56hj31hc0r541k.jpg)
+  ![NexT主题](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/next%E4%B8%BB%E9%A2%98.jpg)
 
 - icarus
 
-  ![icarus主题](https://ww1.sinaimg.cn/large/007rAy9hly1g1objx5er7j31hc0q1akg.jpg)
+  ![icarus主题](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/icarus%E4%B8%BB%E9%A2%98.jpg)
 
 
 

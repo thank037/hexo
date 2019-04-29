@@ -270,7 +270,7 @@ public Response addInstance(InstanceInfo info,
 
 来看下它的继承和实现关系
 
-![Registry](https://ww1.sinaimg.cn/large/007rAy9hly1g23f228h8xj30ez0algos.jpg)
+![Registry](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/registry%E7%BB%A7%E6%89%BF%E7%BB%93%E6%9E%84.jpg)
 
 其中`LeaseManager`中定义了实例注册(register), 续约(renew), 取消(cancel), 剔除(evict)的声明
 
@@ -307,10 +307,10 @@ public void register(final InstanceInfo info, final boolean isReplication) {
 2. 调用replicateToPeers方法, 拿到所有对等的Eureka Server节点的信息, 把实例的更改信息复制到各节点中, 也就是Peer Replicate过程
 
 > 这里的leaseDuration对应配置项`eureka.instance.lease-expiration-duration-in-seconds`, 默认90s
-
+	
 Registry的流程如下: 
 
-![Eureka Server Register](https://ww1.sinaimg.cn/large/007rAy9hgy1g25d2xnjm4j30k00aojsl.jpg)
+![Eureka Server Register](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/eureka%20server%20register.png)
 
 看到这里, 剩下的就是进入父类`AbstractInstanceRegistry`去查看细节了, 而Renew, Cancel的过程基本都是如此, 不说了
 
@@ -510,7 +510,7 @@ public Response addInstance(InstanceInfo info, @HeaderParam(PeerEurekaNode.HEADE
 - `com.netflix.discovery.shared.transport.jersey.AbstractJerseyEurekaHttpClient#register`
 
 流程图如下: 
-![Eureka Client Provider Register](https://ww1.sinaimg.cn/large/007rAy9hgy1g25d3jxyxsj30k0073q3r.jpg)
+![Eureka Client Provider Register](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/Eureka%20Client%20Provider%20Register.png)
 
 同样, Renew, Cancel的过程也参照这个顺序 
 
@@ -522,9 +522,9 @@ public Response addInstance(InstanceInfo info, @HeaderParam(PeerEurekaNode.HEADE
 
 流程如下图
 
-![Eureka Client Consumer Fetch Service Registries](https://ww1.sinaimg.cn/large/007rAy9hgy1g25d3w9hnkj30k008875a.jpg)
+![Eureka Client Consumer Fetch Service Registries](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/Eureka%20Client%20Consumer%20Fetch%20Service%20Registries.png)
 
-![Eureka Client Consumer Update Service Registries](https://ww1.sinaimg.cn/large/007rAy9hgy1g25d4556avj30k007hq3x.jpg)
+![Eureka Client Consumer Update Service Registries](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/Eureka%20Client%20Consumer%20Update%20Service%20Registries.png)
 
 
 <br>

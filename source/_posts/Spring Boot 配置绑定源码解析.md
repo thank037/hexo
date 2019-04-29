@@ -185,7 +185,7 @@ public @interface ConfigurationProperties {
 
 进入该处理类`ConfigurationPropertiesBindingPostProcessor`来看看它的图: 
 
-![ConfigurationPropertiesBindingPostProcessor.png](https://i.loli.net/2019/03/27/5c9ad48e75ada.png)
+![ConfigurationPropertiesBindingPostProcessor.png](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/Spring%E5%85%A8%E5%AE%B6%E6%A1%B6/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/ConfigurationPropertiesBindingPostProcessor.png)
 
 相比Spring Boot 1.x版本, 继承结构简化清晰了好多
 
@@ -289,7 +289,7 @@ public class CustomProperties {
 
 如图: 它正确的加载了默认的配置文件`application.yml`及我们定义的几个属性`custom.xxx`
 
-![propertySource.png](https://ww1.sinaimg.cn/large/007rAy9hly1g1ijlx9z6sj31780o5gon.jpg)
+![propertySource.png](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/Spring%E5%85%A8%E5%AE%B6%E6%A1%B6/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/propertySource.png)
 
 当然, 可以结合`@PropertySources`自己指定资源文件的位置. 这仍是spring-core的东西, 不说了
 
@@ -472,7 +472,7 @@ public static void addDelimitedStringConverters(ConverterRegistry registry) {
     registry.addConverter(new DelimitedStringToCollectionConverter(service));
 }
 ```
-![converters_debug](https://ww1.sinaimg.cn/large/007rAy9hly1g1iltt9gs7j31780o542q.jpg)
+![converters_debug](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/Spring%E5%85%A8%E5%AE%B6%E6%A1%B6/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/propertySource.png)
 
 最终会调用多个类型转换服务
 
@@ -601,7 +601,7 @@ private <T> Object bindObject(ConfigurationPropertyName name, Bindable<T> target
 
 这里在debug时候可以利用IDE的Evaluate Expression功能来验证判断的逻辑: 
 
-![context_streamsource](https://ww1.sinaimg.cn/large/007rAy9hly1g1jgbczzh4j30vm0i9wgd.jpg)
+![context_streamsource](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/Spring%E5%85%A8%E5%AE%B6%E6%A1%B6/%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90/context_stremsource.png)
 
 
 

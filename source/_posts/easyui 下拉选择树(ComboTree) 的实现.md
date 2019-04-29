@@ -46,7 +46,7 @@ $('#cc').combotree({
 
 一个简单基础的下拉树就形成了:
 
-![img](https://ww1.sinaimg.cn/large/007rAy9hgy1g1n4dutlsuj307s06tt8p.jpg)
+![img](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/easyui1.png)
 
 在下拉树旁边写了一个按钮, 这个按钮有一个普通的onclick事件,就是获取下拉树的选择的值.代码如下:
 
@@ -68,7 +68,7 @@ $('#ccm').combotree({
 });
 ```
 
-![img](https://ww1.sinaimg.cn/large/007rAy9hgy1g1n4eadqzgj309s087wel.jpg)
+![img](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/easyui2.png)
 
 如果要获取它选择的值只需要把前面呢个getValue换成getValues
 
@@ -79,7 +79,7 @@ cascadeCheck是定义是否层叠选中状态,也就是前面的小方框会不�
 
 onlyLeafCheck是定义是否只在末级节点之前显示复选框,也就是只有子节点才会有复选框,也就是只能选择叶子节点,没什么级联了.
 
-![img](https://ww1.sinaimg.cn/large/007rAy9hgy1g1n4ekp46gj308w08o74d.jpg)
+![img](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/easyui3.png)
 
 
 
@@ -87,7 +87,7 @@ onlyLeafCheck是定义是否只在末级节点之前显示复选框,也就是只
 
 假如下拉树是要选择班级下的学生信息, 那么随便造个数据.
 
-![img](https://ww1.sinaimg.cn/large/007rAy9hgy1g1n4exzl76j30ec04qq2x.jpg)
+![img](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/easyui4.png)
 
 
 

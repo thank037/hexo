@@ -265,7 +265,7 @@ exit 0
 ### 总结
 
 完成后, 加一个小页面按钮, 效果如下:
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n5tl50ehj30jr0pct9c.jpg)
+![这里写图片描述](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/shell%E9%83%A8%E7%BD%B2%E6%95%88%E6%9E%9C%E5%9B%BE.png)
 
 虽然之前部署这个熟练的话每次只需要三分钟.
 

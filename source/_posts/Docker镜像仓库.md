@@ -78,7 +78,7 @@ docker pull thank037/busybox:1.0
 
 首先需要在`阿里云-容器镜像服务`中创建一个命名空间
 
-![创建命名空间](https://ww1.sinaimg.cn/large/007rAy9hgy1g1xc4ghsm4j30vn0izaar.jpg)
+![创建命名空间](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/docker/%E9%98%BF%E9%87%8C%E4%BA%91-%E5%88%9B%E5%BB%BA%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4.jpg)
 
 可以设置仓库类型, 公有私有
 
@@ -106,7 +106,7 @@ docker pull registry.cn-hangzhou.aliyuncs.com/thank/redis:1.0
 
 去镜像仓库看看吧, 有了
 
-![镜像仓库](https://ww1.sinaimg.cn/large/007rAy9hly1g1xcp2mip3j30zv08qaaa.jpg)
+![镜像仓库](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/docker/%E9%98%BF%E9%87%8C%E4%BA%91-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93.jpg)
 
 
 
@@ -126,7 +126,7 @@ docker pull registry.cn-hangzhou.aliyuncs.com/thank/redis:1.0
 
 每次的构建过程会输出到构建日志中, 可以进行查看
 
-![构建设置](https://ww1.sinaimg.cn/large/007rAy9hly1g1xhjiy4gkj31a10jw0tj.jpg)
+![构建设置](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/docker/%E9%98%BF%E9%87%8C%E4%BA%91-%E6%9E%84%E5%BB%BA%E8%AE%BE%E7%BD%AE.jpg)
 
 
 <br>
@@ -354,7 +354,7 @@ docker-compose帮我们完成了Harbor所需要的多个容器服务
 
 登录后的主页面
 
-![harbor主页](https://ww1.sinaimg.cn/large/007rAy9hly1g1xkfzw2ngj31hc0ooq3v.jpg)
+![harbor主页](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF/docker/harbor%E4%B8%BB%E9%A1%B5.jpg)
 
 测试: 创建用户`thank`, 创建项目`cloudlink-base`和项目中添加用户`thank`, 角色为项目管理员
 

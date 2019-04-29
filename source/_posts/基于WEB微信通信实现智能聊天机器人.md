@@ -260,12 +260,12 @@ URL: <https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxsync?sid=xxx&skey=xxx&pass_tick
 ### 效果演示
 
 在调试功能时, 可以加上log, 查看同步连接信息和消息
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hgy1g1n83suoqkj30wv0e9t97.jpg)
+![小豆丁-后台日志](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%B0%8F%E8%B1%86%E4%B8%81-%E5%90%8E%E5%8F%B0%E6%97%A5%E5%BF%97.png)
 
-附上几张和儿子的聊天:
+附上几张和机器人的聊天:
 
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n84murhwj30jz0zkabz.jpg)
+![小豆丁-聊天截图1](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%B0%8F%E8%B1%86%E4%B8%81-%E8%81%8A%E5%A4%A9%E6%88%AA%E5%9B%BE1.jpg)
 
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n857f22nj30jz0zk40c.jpg)
+![小豆丁-聊天截图2](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%B0%8F%E8%B1%86%E4%B8%81-%E8%81%8A%E5%A4%A9%E6%88%AA%E5%9B%BE2.jpg)
 
-![这里写图片描述](https://ww1.sinaimg.cn/large/007rAy9hly1g1n85pxl7vj30jz0zkgnv.jpg)
+![小豆丁-群聊](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/%E5%B0%8F%E8%B1%86%E4%B8%81-%E7%BE%A4%E8%81%8A.jpg)

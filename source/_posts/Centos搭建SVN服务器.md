@@ -158,7 +158,8 @@ svn commit test.py -m "test commit file"
 在另一台机器(windows)上安装SVN, 这里我安装了TortoiseSVN
 
 点击SVN Checkout: 填入相应仓库地址, 用户名和密码, 点击OK即可检出
-![图片](https://ww1.sinaimg.cn/large/007rAy9hly1g1n3kwdupjj30fn0cq75b.jpg)
+
+![svn_checkout](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%85%B6%E5%AE%83/svn_checkout.png)
 
 注意: 如果检出失败了, 就需要检查一下`/etc/sysconfig`下的iptables. 加入:
 
