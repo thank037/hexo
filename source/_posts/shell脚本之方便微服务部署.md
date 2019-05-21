@@ -1,7 +1,7 @@
 ---
 title: Shell脚本方便微服务部署
 date: 2017-02-15 12:39:04
-categories: Linux
+categories: Linux & Shell
 tags:
   - Linux
   - shell

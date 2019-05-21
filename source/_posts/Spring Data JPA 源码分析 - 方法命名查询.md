@@ -2,7 +2,9 @@
 title: Spring Data JPA源码分析-方法命名查询
 thumbnail: /thumbnails/SpringData.png
 date: 2018-06-01 12:39:04
-categories: Spring Data系列
+categories: 
+    - Spring 全家桶
+    - Spring Data 系列
 tags:
   - Spring Data
   - 源码分析

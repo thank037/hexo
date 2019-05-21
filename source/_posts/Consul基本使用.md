@@ -11,7 +11,9 @@ tags:
 ## 前言
 
 
-官网介绍Consul是一个分布式服务网格(Service Mesh)解决方案 <!-- more -->
+官网介绍Consul是一个分布式服务网格(Service Mesh)解决方案... <!-- more -->
+
+而我目前的理解是提供了分布式系统中的服务发现和配置解决方案, 使用go实现, 目前在github的star是15k, 远超Netflix Eureka
 
 关于Consul的架构, 功能, 对比都可参考[官网](https://www.consul.io), 建议阅读:
 - [What is Consul?](https://www.consul.io/intro/index.html)

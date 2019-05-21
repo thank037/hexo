@@ -1,7 +1,7 @@
 ---
 title: 明日黄花Struts2
 date: 2015-10-19 12:39:04
-categories: Java
+categories: 远古笔记
 ---
 
 [TOC]

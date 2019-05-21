@@ -1,7 +1,7 @@
 ---
 title: Activiti初探
 date: 2017-11-15 12:39:04
-categories: activiti
+categories: 工作
 tags:
   - 工作流
   - activiti

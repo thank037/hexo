@@ -1,7 +1,7 @@
 ---
 title: PowerDesigner使用
 date: 2015-04-15 10:29:04
-categories: 工具
+categories: 远古笔记
 tags:
   - 工具
 ---

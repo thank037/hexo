@@ -1,7 +1,7 @@
 ---
 title: 总结Eclipse设置
 date: 2015-06-15 12:39:04
-categories: 工具
+categories: 工具 & 版本管理
 tags:
   - 工具
   - IDE

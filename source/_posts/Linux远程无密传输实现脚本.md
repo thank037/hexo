@@ -1,7 +1,7 @@
 ---
 title: Linux远程无密传输实现脚本
 date: 2017-05-15 12:39:04
-categories: Linux
+categories: Linux & Shell
 tags:
   - Linux
   - shell

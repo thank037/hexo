@@ -1,7 +1,7 @@
 ---
 title: Git初探
 date: 2016-03-02 12:39:04
-categories: 版本管理
+categories: 工具 & 版本管理
 tags:
   - Git
   - 工具

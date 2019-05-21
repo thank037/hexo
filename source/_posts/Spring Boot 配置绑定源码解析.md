@@ -2,7 +2,9 @@
 title: Spring Boot 2.0源码解析-配置绑定
 thumbnail: /thumbnails/springboot.png
 date: 2019-04-01 17:39:04
-categories: Spring Boot系列
+categories: 
+    - Spring 全家桶
+    - Spring Boot 系列
 tags:
   - Spring Boot
   - 源码分析

@@ -1,7 +1,7 @@
 ---
 title: Python写网络爬虫(一)
 date: 2016-03-31 12:39:04
-categories: Python
+categories: 远古笔记
 tags:
   - Python
   - 爬虫

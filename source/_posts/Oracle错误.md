@@ -1,7 +1,7 @@
 ---
 title: Oracle错误排除
 date: 2013-12-22 12:39:04
-categories: 问题排查
+categories: 远古笔记
 tags:
   - 数据库
 ---

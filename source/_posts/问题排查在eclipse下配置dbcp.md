@@ -1,7 +1,7 @@
 ---
 title: 问题排查:在eclipse下配置dbcp
 date: 2015-10-06 12:39:04
-categories: 问题排查
+categories: 远古笔记
 ---
 
 

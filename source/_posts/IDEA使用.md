@@ -1,7 +1,7 @@
 ---
 title: IDEA使用
 date: 2017-12-15 12:39:04
-categories: 工具
+categories: 工具 & 版本管理
 thumbnail: /thumbnails/idea.png
 tags:
   - 工具

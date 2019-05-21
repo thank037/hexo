@@ -2,7 +2,7 @@
 title: 年中总结与目标OKR
 thumbnail: /thumbnails/xingbake.jpg
 date: 2018-07-16 21:39:04
-categories: 随笔
+categories: 随笔 & 玩
 tags:
   - 随笔
 ---

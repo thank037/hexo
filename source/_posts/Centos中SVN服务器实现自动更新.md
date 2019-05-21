@@ -1,7 +1,7 @@
 ---
 title: Centos中SVN服务器实现自动更新
 date: 2017-03-09 12:39:04
-categories: Linux
+categories: Linux & Shell
 tags:
   - Linux
   - 运维

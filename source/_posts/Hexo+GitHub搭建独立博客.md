@@ -1,9 +1,9 @@
 ---
 title: Hexo+GitHub搭建独立博客
 date: 2016-09-14 12:39:04
-categories: 独立博客
+categories: 随笔 & 玩
 tags:
-  - github
+  - 随笔
   - hexo
 ---
 

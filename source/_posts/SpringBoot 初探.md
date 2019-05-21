@@ -1,7 +1,9 @@
 ---
 title: Spring Boot 初探
 date: 2016-11-01 12:39:04
-categories: Spring Boot系列
+categories: 
+    - Spring 全家桶
+    - Spring Boot 系列
 tags:
   - Spring
   - Spring Boot

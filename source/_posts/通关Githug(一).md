@@ -1,7 +1,7 @@
 ---
 title: 通关Githug(一)
 date: 2017-12-25 12:39:04
-categories: 版本管理
+categories: 工具 & 版本管理
 tags:
   - Git
 ---

@@ -1,9 +1,10 @@
 ---
 title: 更换icarus主题记录
 date: 2019-04-02 15:23:22
-categories: 独立博客
+categories: 随笔 & 玩
 tags:
   - hexo
+  - 随笔
 ---
 
 [TOC]

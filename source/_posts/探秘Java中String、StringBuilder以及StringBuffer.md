@@ -1,7 +1,7 @@
 ---
 title: 探秘Java中String、StringBuilder以及StringBuffer
 date: 2013-02-15 12:39:04
-categories: Java
+categories: 远古笔记
 tags:
   - Java
 ---

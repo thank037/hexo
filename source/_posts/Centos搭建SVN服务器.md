@@ -1,7 +1,7 @@
 ---
 title: Centos搭建SVN服务器
 date: 2017-02-28 12:39:04
-categories: Linux
+categories: Linux & Shell
 tags:
   - Linux
   - 运维

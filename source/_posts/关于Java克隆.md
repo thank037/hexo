@@ -1,7 +1,7 @@
 ---
 title: 关于Java克隆
 date: 2016-11-18 12:39:04
-categories: Java
+categories: 远古笔记
 tags:
   - Java
 ---
