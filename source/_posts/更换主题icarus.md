@@ -142,6 +142,10 @@ tags:
 - `themes/hexo-theme-icarus/layout/common/footer.ejs`
 
 
+#### 13. 加个猫
+
+- 网址: [hexo-helper-live2d](https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md)
+
 
 ### 配合gulp压缩
 
