@@ -19,6 +19,7 @@ tags:
 
 **目的**
 
+
 结合Netflix Eureka架构图
 
 - 从源码解读Eureka架构图中服务生命周期
@@ -307,7 +308,7 @@ public void register(final InstanceInfo info, final boolean isReplication) {
 2. 调用replicateToPeers方法, 拿到所有对等的Eureka Server节点的信息, 把实例的更改信息复制到各节点中, 也就是Peer Replicate过程
 
 > 这里的leaseDuration对应配置项`eureka.instance.lease-expiration-duration-in-seconds`, 默认90s
-	
+
 Registry的流程如下: 
 
 ![Eureka Server Register](https://blog-md-pic-1259135436.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%93%E9%A2%98/%E6%9C%8D%E5%8A%A1%E5%8F%91%E7%8E%B0/eureka%20server%20register.png)

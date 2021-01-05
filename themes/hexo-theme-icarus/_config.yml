@@ -181,7 +181,9 @@ widgets:
 
         # Links to be shown in the links widget
         links:
-            朱双印个人日志: 'http://www.zsythink.net'
+            朱双印运维日志: 'http://www.zsythink.net'
+            大老杨(Dalaoyang): 'https://www.dalaoyang.cn'
+            小袁Blog: 'https://www.jianshu.com/u/586ff6e87459'
             小鱼周凌宇: 'http://zhoulingyu.com'
             陈敏: 'https://www.chenmin.info'
             斑马のCODE_HOME: 'http://xunyajie.com/'

@@ -9,6 +9,8 @@ tags:
 
 [TOC]
 
+
+
 ### 前言
 
 终于把用了两年多的NexT主题换掉了, 之前喜欢这个主题是因为黑白两色显得特别简洁!
@@ -262,6 +264,22 @@ gulp.task('default', [
     'minify-html','minify-xml','minify-css','minify-js','minify-images'
 ]);
 ```
+
+
+
+#### 使用
+
+目前我还是手动的, 没有写到脚本里
+
+- **clean**: hexo clean
+- **build**: hexo clean && hexo g
+- **gulp**: hexo clean && hexo g && gulp
+- **server**: hexo clean && hexo g && hexo s
+- **deploy**: hexo clean && hexo g && gulp && hexo d
+
+可以单独使用, 也可以写入脚本中
+
+例如我平时发布就使用`deploy`中的三个命令, 顺序执行
 
 
 
