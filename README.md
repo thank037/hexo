@@ -15,8 +15,8 @@ deploy:
 ```
 
 ### Deploy
-- hexo clean
-- hexo g
-- hexo s (If you want to see it local)
-- gulp 
-- hexo d
+- hexo clean (clean)
+- hexo g     (generate)
+- hexo s     (If you want to see it local)
+- gulp       (Compression static resources)
+- hexo d     (deploy)
